@@ -37,7 +37,7 @@ import org.testng.annotations.Test;
 import java.time.Duration;
 
 import org.openqa.selenium.WebDriver;
-
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 
@@ -64,12 +64,16 @@ public class Automation {
     @Test
     public void automation() throws Throwable {
     	dr.manage().window().maximize();
-		WebDriverWait wait = new WebDriverWait(dr, Duration.ofSeconds(5));
+		WebDriverWait wait = new WebDriverWait(dr, Duration.ofSeconds(10));
 		dr.get("https://www.makemytrip.com/flight/search?tripType=O&itinerary=DEL-BOM-20/02/2024&paxType=A-1_C-0_I-0&cabinClass=E&sTime=1707972341167&forwardFlowRequired=true&cmp=SEM|D|IF|G|Brand|IF_Brand_Exact-Ex_India|Brand_Exact_Ex_india|RSA|Regular|NewFunnel|645153719700&mpo=&semType=&intl=false");
 		
 		//get all the prices from the table
+		
+		// dr.findElement(By.cssSelector(".overlayCrossIcon")).click();
+		
+		wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(By.xpath("(//div[contains(@class,'blackText fontSize18 blackFont white-space-no-wrap clusterViewPrice')])")));
 
-		List<WebElement> price = dr.findElements(By.xpath("//*[@id='content']/div/div[5]/div[5]/div[2]/div/div[2]/div[2]/div[6]/p[1]/span[2]"));
+		List<WebElement> price = dr.findElements(By.xpath("(//div[contains(@class,'blackText fontSize18 blackFont white-space-no-wrap clusterViewPrice')])"));
 
 		System.out.println(price.size());
 
@@ -78,9 +82,19 @@ public class Automation {
 		ArrayList<Integer> prices=new ArrayList<Integer>();
 
 		for(int i=0;i<price.size();i++){
-		System.out.println(price.get(i).getText());
-			Integer priceInt = Integer.valueOf(price.get(i).getText().replace(",", ""));
-			prices.add(priceInt);		
+			String priceText = price.get(i).getText();
+		    
+		    // Remove commas from the price text
+		    String priceWithoutCommas = priceText.replaceAll(",", "");
+
+		    try {
+		        // Parse the modified price text as an integer and add it to the list
+		        int priceInt = Integer.parseInt(priceWithoutCommas);
+		        prices.add(priceInt);
+		    } catch (NumberFormatException e) {
+		        // Handle the case where parsing fails (e.g., non-numeric characters)
+		        System.err.println("Failed to parse price: " + priceText);
+		    }		
 		}
 
 		Integer minPrice = Collections.min(prices);
