@@ -12,11 +12,6 @@ import java.util.Map;
 
 import java.util.concurrent.TimeUnit;
 
-
-import org.junit.After;
-
-import org.junit.Before;
-
 import org.openqa.selenium.By;
 
 import org.openqa.selenium.Dimension;
@@ -29,11 +24,13 @@ import org.openqa.selenium.WebDriver;
 
 import org.openqa.selenium.WebElement;
 
-import org.openqa.selenium.chrome.ChromeDriver;
-
 import org.openqa.selenium.firefox.FirefoxDriver;
 
 import org.openqa.selenium.interactions.Actions;
+
+import org.testng.annotations.BeforeMethod;
+
+import org.testng.annotations.AfterMethod;
 
 import org.testng.annotations.Test;
 
@@ -51,26 +48,26 @@ public class Automation {
 	private Map<String, Object> vars;
 	JavascriptExecutor js;
 
-	@Before
+	@BeforeMethod
 	public void setUp() {
 		dr = new FirefoxDriver();
 		js = (JavascriptExecutor) dr;
 		vars = new HashMap<String, Object>();
 	}
 
-	@After
+	@AfterMethod
 	public void tearDown() {
 	    dr.quit();
 	}
 
 	
     @Test
-    public void cart() throws Throwable {
-
-		dr.get("https://www.makemytrip.com/flight/search?itinerary=DEL-BOM-14/02/2024&tripType=O&paxType=A-1_C-0_I-0&intl=false&cabinClass=E&ccde=IN&lang=eng&cmp=SEM|D|IF|G|Brand|IF_Brand_Exact-Ex_India|Brand_Exact_Ex_india|RSA|Regular|NewFunnel|645153719700");
-		dr.manage().window().maximize();
+    public void automation() throws Throwable {
+    	dr.manage().window().maximize();
 		WebDriverWait wait = new WebDriverWait(dr, Duration.ofSeconds(5));
-			//get all the prices from the table
+		dr.get("https://www.makemytrip.com/flight/search?tripType=O&itinerary=DEL-BOM-20/02/2024&paxType=A-1_C-0_I-0&cabinClass=E&sTime=1707972341167&forwardFlowRequired=true&cmp=SEM|D|IF|G|Brand|IF_Brand_Exact-Ex_India|Brand_Exact_Ex_india|RSA|Regular|NewFunnel|645153719700&mpo=&semType=&intl=false");
+		
+		//get all the prices from the table
 
 		List<WebElement> price = dr.findElements(By.xpath("//*[@id='content']/div/div[5]/div[5]/div[2]/div/div[2]/div[2]/div[6]/p[1]/span[2]"));
 
@@ -81,7 +78,7 @@ public class Automation {
 		ArrayList<Integer> prices=new ArrayList<Integer>();
 
 		for(int i=0;i<price.size();i++){
-		//System.out.println(price.get(i).getText());
+		System.out.println(price.get(i).getText());
 			Integer priceInt = Integer.valueOf(price.get(i).getText().replace(",", ""));
 			prices.add(priceInt);		
 		}
@@ -95,9 +92,9 @@ public class Automation {
 
 		List<WebElement> allBookbtn = dr.findElements(By.xpath("//*[@id='content']/div/div[5]/div[5]/div[2]/div/div[2]/div[2]/div[7]/p/a"));
 
-			Thread.sleep(3000);
+		Thread.sleep(3000);
 
-			for(int i=0;i<price.size();i++){
+		for(int i=0;i<price.size();i++){
 
 			Integer priceInt1 = Integer.valueOf(price.get(i).getText().replace(",", ""));
 
@@ -107,9 +104,9 @@ public class Automation {
 
 			if(priceInt1==minPrice){
 
-			allBookbtn.get(i).click();
+				allBookbtn.get(i).click();
 
-			break;
+				break;
 
 			}
 
@@ -118,7 +115,6 @@ public class Automation {
 	 }
 
 	
-
 }
 
 

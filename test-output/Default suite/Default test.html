@@ -57,9 +57,9 @@ function toggleAllBoxes() {
 <tr>
 <td>Tests passed/Failed/Skipped:</td><td>0/1/0</td>
 </tr><tr>
-<td>Started on:</td><td>Wed Feb 14 15:07:55 BDT 2024</td>
+<td>Started on:</td><td>Thu Feb 15 10:46:18 BDT 2024</td>
 </tr>
-<tr><td>Total time:</td><td>0 seconds (88 ms)</td>
+<tr><td>Total time:</td><td>22 seconds (22448 ms)</td>
 </tr><tr>
 <td>Included groups:</td><td></td>
 </tr><tr>
@@ -76,9 +76,11 @@ function toggleAllBoxes() {
 <td><b>Instance</b></td>
 </tr>
 <tr>
-<td title='automation.Automation.cart()'><b>cart</b><br>Test class: automation.Automation</td>
-<td><div><pre>java.lang.NullPointerException: Cannot invoke &quot;org.openqa.selenium.WebDriver.get(String)&quot; because &quot;this.dr&quot; is null
-	at automation.Automation.cart(Automation.java:70)
+<td title='automation.Automation.automation()'><b>automation</b><br>Test class: automation.Automation</td>
+<td><div><pre>java.util.NoSuchElementException
+	at java.base/java.util.ArrayList$Itr.next(ArrayList.java:970)
+	at java.base/java.util.Collections.min(Collections.java:601)
+	at automation.Automation.automation(Automation.java:86)
 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:578)
 	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:139)
@@ -105,9 +107,11 @@ function toggleAllBoxes() {
 	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-</pre></div><a href='#' onClick='toggleBox("stack-trace2102368942", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace2102368942'><pre>java.lang.NullPointerException: Cannot invoke &quot;org.openqa.selenium.WebDriver.get(String)&quot; because &quot;this.dr&quot; is null
-	at automation.Automation.cart(Automation.java:70)
+</pre></div><a href='#' onClick='toggleBox("stack-trace1624351535", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1624351535'><pre>java.util.NoSuchElementException
+	at java.base/java.util.ArrayList$Itr.next(ArrayList.java:970)
+	at java.base/java.util.Collections.min(Collections.java:601)
+	at automation.Automation.automation(Automation.java:86)
 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:578)
 	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:139)
@@ -135,8 +139,8 @@ function toggleAllBoxes() {
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
 </pre></div></td>
-<td>0</td>
-<td>automation.Automation@1d8bd0de</td></tr>
+<td>10</td>
+<td>automation.Automation@43bc63a3</td></tr>
 </table><p>
 </body>
 </html>

@@ -5,7 +5,9 @@
     <classes>
       <class name="automation.Automation">
         <methods>
-          <include name="cart"/>
+          <include name="tearDown"/>
+          <include name="setUp"/>
+          <include name="automation"/>
         </methods>
       </class> <!-- automation.Automation -->
     </classes>

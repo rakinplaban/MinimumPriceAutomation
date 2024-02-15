@@ -2,19 +2,22 @@
 <testng-results ignored="0" total="1" passed="0" failed="1" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2024-02-14T15:07:55 BDT" name="Default suite" finished-at="2024-02-14T15:07:55 BDT" duration-ms="88">
+  <suite started-at="2024-02-15T10:46:18 BDT" name="Default suite" finished-at="2024-02-15T10:46:40 BDT" duration-ms="22448">
     <groups>
     </groups>
-    <test started-at="2024-02-14T15:07:55 BDT" name="Default test" finished-at="2024-02-14T15:07:55 BDT" duration-ms="88">
+    <test started-at="2024-02-15T10:46:18 BDT" name="Default test" finished-at="2024-02-15T10:46:40 BDT" duration-ms="22448">
       <class name="automation.Automation">
-        <test-method signature="cart()[pri:0, instance:automation.Automation@1d8bd0de]" started-at="2024-02-14T15:07:55 BDT" name="cart" finished-at="2024-02-14T15:07:55 BDT" duration-ms="13" status="FAIL">
-          <exception class="java.lang.NullPointerException">
-            <message>
-              <![CDATA[Cannot invoke "org.openqa.selenium.WebDriver.get(String)" because "this.dr" is null]]>
-            </message>
+        <test-method is-config="true" signature="setUp()[pri:0, instance:automation.Automation@43bc63a3]" started-at="2024-02-15T10:46:18 BDT" name="setUp" finished-at="2024-02-15T10:46:25 BDT" duration-ms="7648" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method signature="automation()[pri:0, instance:automation.Automation@43bc63a3]" started-at="2024-02-15T10:46:25 BDT" name="automation" finished-at="2024-02-15T10:46:36 BDT" duration-ms="10324" status="FAIL">
+          <exception class="java.util.NoSuchElementException">
             <full-stacktrace>
-              <![CDATA[java.lang.NullPointerException: Cannot invoke "org.openqa.selenium.WebDriver.get(String)" because "this.dr" is null
-at automation.Automation.cart(Automation.java:70)
+              <![CDATA[java.util.NoSuchElementException
+at java.base/java.util.ArrayList$Itr.next(ArrayList.java:970)
+at java.base/java.util.Collections.min(Collections.java:601)
+at automation.Automation.automation(Automation.java:86)
 at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
 at java.base/java.lang.reflect.Method.invoke(Method.java:578)
 at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:139)
@@ -43,10 +46,14 @@ at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
 at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
 ]]>
             </full-stacktrace>
-          </exception> <!-- java.lang.NullPointerException -->
+          </exception> <!-- java.util.NoSuchElementException -->
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- cart -->
+        </test-method> <!-- automation -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:automation.Automation@43bc63a3]" started-at="2024-02-15T10:46:36 BDT" name="tearDown" finished-at="2024-02-15T10:46:40 BDT" duration-ms="4397" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
       </class> <!-- automation.Automation -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
